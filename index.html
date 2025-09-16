@@ -87,6 +87,7 @@
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            width: 100%;
         }
 
         .section-title span {
@@ -148,7 +149,7 @@
 
         @keyframes scaleIn {
             0% { transform: scale(0.95); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+           100% { transform: scale(1); opacity: 1; }
         }
 
         /* Header Styles */
@@ -416,6 +417,7 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
             width: 100%;
             max-width: 220px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
 
         .team-member:hover {
@@ -486,6 +488,7 @@
             perspective: 1000px;
             width: 100%;
             max-width: 380px; /* Limit max width for better alignment */
+            margin: 0 auto;
         }
 
         .event-card-inner {
@@ -806,6 +809,78 @@
             z-index: -1;
         }
 
+        /* Promo Banner Styles */
+        .promo-banner {
+            background: linear-gradient(90deg, #ff6b6b 0%, #ff8e53 100%);
+            color: #fff;
+            padding: 8px 0;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 1000;
+            margin-top: 85px;
+        }
+
+        .promo-container {
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            gap: 20px;
+            flex-wrap: nowrap;
+        }
+
+        .promo-label {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: pulse 2s infinite;
+            flex-shrink: 0;
+        }
+
+        .promo-label i {
+            margin-right: 6px;
+        }
+
+        .promo-content {
+            display: flex;
+            white-space: nowrap;
+            animation: promoMarquee 25s linear infinite;
+            will-change: transform;
+        }
+
+        .promo-content:hover {
+            animation-play-state: paused;
+        }
+
+        .promo-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .promo-item i {
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        /* Marquee Animation */
+        @keyframes promoMarquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 1100px) {
             .hero {
@@ -872,6 +947,17 @@
             
             .event-img {
                 height: 300px;
+            }
+            
+            .promo-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .promo-content {
+                animation-duration: 18s;
             }
         }
         
@@ -994,6 +1080,11 @@
             .event-highlights li {
                 font-size: 0.85rem;
             }
+            
+            .promo-item {
+                margin: 0 15px;
+                font-size: 0.8rem;
+            }
         }
         
         @media (max-width: 400px) {
@@ -1046,6 +1137,23 @@
             <i class="fas fa-bars"></i>
         </button>
     </header>
+    
+    <section class="promo-banner">
+        <div class="promo-container">
+         
+            <div class="promo-content">
+                <div class="promo-item">
+                    <i class="fas fa-bolt"></i> Web Hackathon - sept 19, 2025
+                </div>
+                <div class="promo-item">
+                    <i class="fas fa-network-wired"></i> Web Hackathon - sept 19, 2025
+                </div>
+                <div class="promo-item">
+                    <i class="fas fa-chart-pie"></i> Web Hackathon - sept 19, 2025
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1075,40 +1183,39 @@
     </section>
 
     <!-- Team Section -->
-<section class="team-section" id="team">
-    <h2 class="section-title">Our <span>Leadership Team</span></h2>
-    
-    <!-- New Faculty Coordinators Section -->
-    <div class="carousel-container">
-        <h3 class="carousel-title">Faculty Coordinators</h3>
-        <div class="team-grid">
-            <!-- Faculty Team Members -->
-            
-            <div class="team-member">
-                <div class="profile-container">
-                    <div class="profile-img">
-                        <img src="assets\members\fac\Aparna pv.jpg" alt="Aparna P V">
+    <section class="team-section" id="team">
+        <h2 class="section-title">Our <span>Leadership Team</span></h2>
+        
+        <!-- New Faculty Coordinators Section -->
+        <div class="carousel-container">
+            <h3 class="carousel-title">Faculty Coordinators</h3>
+            <div class="team-grid">
+                <!-- Faculty Team Members -->
+                <div class="team-member">
+                    <div class="profile-container">
+                        <div class="profile-img">
+                            <img src="assets\members\fac\Aparna pv.jpg" alt="Aparna P V">
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Aparna P V</h3>
+                        <p>Faculty Coordinator</p>
                     </div>
                 </div>
-                <div class="member-info">
-                    <h3>Aparna P V</h3>
-                    <p>Faculty Coordinator</p>
-                </div>
-            </div>
-            
-            <div class="team-member">
-                <div class="profile-container">
-                    <div class="profile-img">
-                        <img src="assets\members\fac\keerthimon.jpg" alt="Keerthimon P">
+                
+                <div class="team-member">
+                    <div class="profile-container">
+                        <div class="profile-img">
+                            <img src="assets\members\fac\keerthimon.jpg" alt="Keerthimon P">
+                        </div>
                     </div>
-                </div>
-                <div class="member-info">
-                    <h3>Keerthimon P</h3>
-                    <p>Faculty Coordinator</p>
+                    <div class="member-info">
+                        <h3>Keerthimon P</h3>
+                        <p>Faculty Coordinator</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
         
         <div class="carousel-container">
             <h3 class="carousel-title">Core Members</h3>
@@ -1146,7 +1253,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Krisha Jain</h3>
-                         <p>Member</p>
+                        <!-- <p>Secretary</p> -->
                     </div>
                 </div>
                 
@@ -1158,7 +1265,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Gayantika Manoj</h3>
-                        <p>Internship Coordinator</p>
+                        <!-- <p>Treasurer</p> -->
                     </div>
                 </div>
                 
@@ -1170,7 +1277,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Krishna R</h3>
-                        <p>Start up coordinator</p>
+                        <!-- <p>Industry Liaison</p> -->
                     </div>
                 </div>
                 
@@ -1182,7 +1289,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Dhruv</h3>
-                        <p>PR coordinator</p>
+                        <!-- <p>Research Head</p> -->
                     </div>
                 </div>
                 
@@ -1194,7 +1301,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Varsha</h3>
-                        <p>Social Media Coordinator</p>
+                        <!-- <p>Student Engagement</p> -->
                     </div>
                 </div>
             </div>
@@ -1231,11 +1338,11 @@
                 <div class="team-member">
                     <div class="profile-container">
                         <div class="profile-img">
-                            <img src="assets\members\cs\Vrinda Vasudevan Nair.PNG" alt="Vrinda Vasudevan Nair">
+                            <img src="assets\members\cs\Vrinda Vasudevan Nair.PNG" alt="Vrinda Vasudevan Nair">
                         </div>
                     </div>
                     <div class="member-info">
-                        <h3>Vrinda Vasudevan Nair</h3>
+                        <h3>Vrinda Vasudevan Nair</h3>
                         <p>Creative team</p>
                     </div>
                 </div>
@@ -1259,8 +1366,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Jayasudiksha M</h3>
-                        <p>Finance Handle
-</p>
+                        <p>Finance Handle</p>
                     </div>
                 </div>
                 
@@ -1272,8 +1378,7 @@
                     </div>
                     <div class="member-info">
                         <h3>Sreelakshmi V</h3>
-                        <p>Finance Handle
-</p>
+                        <p>Finance Handle</p>
                     </div>
                 </div>
                 
@@ -1413,7 +1518,7 @@ knowledge of iconic logos and brand identities</p>
                     <div class="event-card-front">
                         <img src="assets\events\web.png" alt="IP Rights Workshop">
                         <div class="event-content">
-                            <h3>IP Rights Workshop</h3>
+                            <h3>Web Hackathon</h3>
                         </div>
                     </div>
                     <div class="event-card-back">
@@ -1611,7 +1716,7 @@ and speed were key to scoring points</p>
     <div class="event-modal" id="ip-workshop-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>IP Rights Workshop 2022</h3>
+                <h3>Web Hackathon</h3>
                 <button class="close-modal" onclick="closeEventModal()">&times;</button>
             </div>
             <div class="modal-body">
